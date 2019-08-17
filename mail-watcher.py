@@ -6,7 +6,7 @@ import email.header
 import time
 import json
 
-with open("config.json", 'r') as f:
+with open("/opt/matcher/config.json", 'r') as f:
   config = json.loads(f.read())
 
   IMAP4_HOST = config['host']
