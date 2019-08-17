@@ -1,0 +1,7 @@
+{
+    "host": "imap.mxhichina.com",
+    "port": 993,
+    "user": "leon.li@logicsolutions.com.cn",
+    "pass": "YourEmailPassword",
+    "mailbox": "inbox"
+}
