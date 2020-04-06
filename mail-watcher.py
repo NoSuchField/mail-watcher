@@ -9,6 +9,8 @@ import gi
 gi.require_version('Notify', '0.7')
 from gi.repository import Notify
 
+os.environ['DISPLAY'] = ':0.0'
+
 def decode_mime_words(s):
     return u''.join(
         word.decode(encoding or 'utf8') if isinstance(word, bytes) else word
