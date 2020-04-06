@@ -5,6 +5,9 @@ import os
 import email.header
 import time
 import json
+import gi
+gi.require_version('Notify', '0.7')
+from gi.repository import Notify
 
 def decode_mime_words(s):
     return u''.join(
@@ -34,7 +37,9 @@ with open("/opt/matcher/config.json", 'r') as f:
                         original = email.message_from_bytes(response_part[1])
                         title = decode_mime_words(original['From'])
                         brief = decode_mime_words(original['Subject'])
-                        os.system("/usr/bin/notify-send '"+title + "' '"+brief+"' --icon=evolution-mail")
+                        Notify.init(title)
+                        Hello = Notify.Notification.new(title, brief, "evolution-mail")
+                        Hello.show()
         imap.close()
         imap.logout()
     exit()    
