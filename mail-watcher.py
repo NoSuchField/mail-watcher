@@ -16,7 +16,7 @@ def decode_mime_words(s):
         word.decode(encoding or 'utf8') if isinstance(word, bytes) else word
         for word, encoding in email.header.decode_header(s))
 
-with open("/opt/matcher/config.json", 'r') as f:
+with open("/opt/mail-watcher/config.json", 'r') as f:
     config = json.loads(f.read())
     for c in config:
         IMAP4_HOST      = c['host']
