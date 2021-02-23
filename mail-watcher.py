@@ -39,9 +39,11 @@ with open("/opt/mail-watcher/config.json", 'r') as f:
                         original = email.message_from_bytes(response_part[1])
                         title = decode_mime_words(original['From'])
                         brief = decode_mime_words(original['Subject'])
-                        Notify.init(title)
+                        Notify.init("Email Noticifaction")
                         Hello = Notify.Notification.new(title, brief, "evolution-mail")
+                        Hello.set_timeout(60000);
                         Hello.show()
+                        time.sleep(1)
         imap.close()
         imap.logout()
     exit()    
